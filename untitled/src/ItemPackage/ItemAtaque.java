@@ -6,8 +6,10 @@ public abstract class ItemAtaque extends Item{
 
     private int dano;
 
-    protected ItemAtaque(String nome, String descricao) {
+    protected ItemAtaque(String nome, String descricao, int dano) {
         super(nome, descricao);
+        this.dano = dano;
+
     }
 
     abstract void atacar();
