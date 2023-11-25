@@ -39,8 +39,14 @@ public class FaseCoronaVirus extends FaseAbstrata{
                 System.out.println("1. Atacar");
                 System.out.println("2. Abrir inventário");
                 int opcao = ler.nextInt();
-                if(opcao == 1){
+                if(opcao ==1){
+                    //fazer a parte de ataque
+                }
+                if(opcao == 2){
                     this.getJogador().listarItens();
+                }
+                else{
+                    System.out.println("Opção inválida! Digite uma opção válida");
                 }
             }
 
