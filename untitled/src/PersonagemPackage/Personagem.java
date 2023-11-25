@@ -1,21 +1,27 @@
 package PersonagemPackage;
 
-public class Personagem {
+public abstract class Personagem {
 
     private String nome;
     private int vida;
 
-    private boolean estaVivo;
+    private int ataque;
+
+    private int defesa;
+
 
     protected Personagem(){
 
     }
 
-    protected Personagem(String nome, int vida) {
+    protected Personagem(String nome, int vida,int ataque, int defesa) {
         this.nome = nome;
         this.vida = vida;
-        this.estaVivo = true;
+        this.ataque = ataque;
+        this.defesa = defesa;
     }
+
+    public abstract void ataque(Personagem personagem);
 
     public String getNome() {
         return nome;
@@ -33,12 +39,20 @@ public class Personagem {
         this.vida = vida;
     }
 
-    public boolean isEstaVivo() {
-        return estaVivo;
+    public int getAtaque() {
+        return ataque;
     }
 
-    public void setEstaVivo(boolean estaVivo) {
-        this.estaVivo = estaVivo;
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
     }
 
 }
