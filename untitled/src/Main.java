@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Qual o seu primeiro nome?");
         String nome = ler.next();
         Jogador jogador = new Jogador(nome, 100);
-       while(true){
+        while(true){
            System.out.println("===> Seja bem vindo "+jogador.getNome() +" ao Health RPG!!! <===\n");
            System.out.println("1. Start");
            System.out.println("2. Desenvolvedores");
