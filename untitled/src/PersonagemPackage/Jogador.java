@@ -12,19 +12,24 @@ public class Jogador extends Personagem{
 
     private ItemAtaque itemAtaque;
 
-    public Jogador(String nome, int vida) {
-        super(nome, vida);
+    public Jogador(String nome, int vida, ItemAtaque itemAtaque) {
+        super(nome, vida, itemAtaque.getDano(),0);
         itens = new ArrayList<>();
     }
 
-    public void atacar(Personagem erqqwerqw){
-
+    @Override
+    public void ataque(Personagem personagem){
+        int vidaAposDano = personagem.getVida() - this.getAtaque();
+        personagem.setVida(vidaAposDano);
+        System.out.println(personagem.getNome() + "sofreu "+this.getAtaque() +" de dano");
     }
 
     public void listarItens(){
         System.out.println("----- Lista Itens ----");
-        for(Item item : itens){
-            System.out.println("Nome: "+item.getNome()+ "Descrição: "+item.getDescricao());
+        for(int i =0; i<itens.size(); i++){
+            System.out.println("-- -- --");
+            System.out.println("Item "+itens.get(i));
+            System.out.println("Nome: "+itens.get(i).getNome()+ "Descrição: "+itens.get(i).getDescricao());
         }
     }
 
@@ -36,11 +41,4 @@ public class Jogador extends Personagem{
         this.itens.add(item);
     }
 
-    public ItemAtaque getItemAtaque() {
-        return itemAtaque;
-    }
-
-    public void setItemAtaque(ItemAtaque itemAtaque) {
-        this.itemAtaque = itemAtaque;
-    }
 }
