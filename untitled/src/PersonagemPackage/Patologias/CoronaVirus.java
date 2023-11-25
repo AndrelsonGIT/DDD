@@ -6,14 +6,14 @@ import PersonagemPackage.Personagem;
 public class CoronaVirus extends Inimigo{
 
     public CoronaVirus() {
-        super("Corona Virus", 100, 10);
-
+        super("Corona Virus", 200, 30, 10);
     }
 
     @Override
-    void ataque(Jogador jogador) {
-
+    public void ataque(Personagem personagem) {
+        personagem.getAtaque();
     }
+
     @Override
     void ataque(Jogador jogador, SuperAtaque superAtaque) {
 
