@@ -12,7 +12,6 @@ public class Mascara extends ItemConsumivel {
     }
     @Override
     public void usarItem(Jogador jogador){
-        System.out.println(jogador.getNome()+" usou o item "+this.getNome()+" e ganhou "+this.getDefesa());
         jogador.setDefesa(this.defesa);
         System.out.println("jogador "+jogador.getNome()+" usou"+ this.getNome() +"e ganhou "+this.defesa+ " de defesa");
     }

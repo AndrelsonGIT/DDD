@@ -45,11 +45,12 @@ public class Jogador extends Personagem{
         while(true){
             System.out.println("Qual item deseja usar?");
             int nItemUsuario = ler.nextInt();
-            if(nItemUsuario+1 <itens.size() || nItemUsuario+1>itens.size()){
+            if(nItemUsuario+1 <0 || nItemUsuario+1>itens.size()){
                 System.out.println("Valor digitado inválido!!");
             }
             else{
                 itens.get(nItemUsuario).usarItem(this);
+                break;
             }
         }
 
