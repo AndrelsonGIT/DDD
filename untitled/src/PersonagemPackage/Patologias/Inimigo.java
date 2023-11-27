@@ -13,5 +13,5 @@ public abstract class Inimigo extends Personagem {
         super(nome, vida, ataque,defesa);
     }
 
-    abstract void ataque(Jogador jogador, SuperAtaque superAtaque);
+    public abstract void superAtaque(Jogador personagem) throws InterruptedException;
 }

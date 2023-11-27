@@ -2,17 +2,22 @@ package ItemPackage;
 
 import PersonagemPackage.Jogador;
 
-public class Mascara extends Item{
+public class Mascara extends ItemConsumivel {
 
-    private int defesa;
+    private final int defesa;
 
     public Mascara() {
-        super("Bisturi", "");
+        super("Mascara", "");
         this.defesa = 30;
     }
-
+    @Override
     public void usarItem(Jogador jogador){
-        jogador.setDefesa(30);
-        System.out.println("jogador "+jogador.getNome()+" usou Mascara e ganhou 30 de defesa");
+        System.out.println(jogador.getNome()+" usou o item "+this.getNome()+" e ganhou "+this.getDefesa());
+        jogador.setDefesa(this.defesa);
+        System.out.println("jogador "+jogador.getNome()+" usou"+ this.getNome() +"e ganhou "+this.defesa+ " de defesa");
+    }
+
+    public int getDefesa() {
+        return defesa;
     }
 }

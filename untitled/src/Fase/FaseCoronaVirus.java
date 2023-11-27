@@ -1,5 +1,8 @@
 package Fase;
 
+import ItemPackage.ItemAtaque;
+import ItemPackage.Mascara;
+import ItemPackage.Medicamento;
 import PersonagemPackage.Jogador;
 import PersonagemPackage.Patologias.CoronaVirus;
 
@@ -9,6 +12,7 @@ public class FaseCoronaVirus extends FaseAbstrata{
 
     public FaseCoronaVirus(Jogador usuario){
         super(usuario, new CoronaVirus());
+
     }
 
     @Override
@@ -21,35 +25,68 @@ public class FaseCoronaVirus extends FaseAbstrata{
         Thread.sleep(3000);
         System.out.println("Sintomas comuns incluem febre, tosse, dificuldade respiratória, fadiga e perda de olfato e paladar. A transmissão ocorre principalmente por gotículas respiratórias durante a fala, tosse ou espirro de uma pessoa infectada, além do contato próximo.\n");
         System.out.println("Sua missão é utilizar os itens corretos para combater e se proteger dessa ameaça invisível. O destino da cidade está em suas mãos! Boa sorte!\n");
-        System.out.println("Começando a batalha!!!");
+        System.out.println("Começando a batalha!!!\n");
         batalha();
     }
 
     @Override
-    protected void batalha() {
+    protected void batalha() throws InterruptedException {
+
         Scanner ler = new Scanner(System.in);
-        System.out.println("Inimigo Corona Virus");
-        while(this.getJogador().getVida()>0 && this.getInimigo().getVida()>0){
+        Mascara mascara = new Mascara();
+        Medicamento medicamento = new Medicamento();
+        this.getJogador().addItem(mascara);
+        this.getJogador().addItem(medicamento);
+        ItemAtaque itemAtaque = new ItemAtaque("Tesoura", "Item mto louco", 30);
+        this.getJogador().setAtaque(itemAtaque);
+        System.out.println("--- Inimigo: Corona Virus ---\n");
+        int contadorSuperAtaque = 1;
+        while(this.getJogador().getVida()>0){
             System.out.println("Informações Game: ");
-            System.out.println("Jogador: " +this.getJogador().getNome()+" Vida: "+this.getJogador().getVida()+"\n");
-            System.out.println("Inimigo: "+this.getInimigo().getNome()+" Vida: "+this.getInimigo().getVida()+"\n");
+            System.out.println("Jogador: " +this.getJogador().getNome()+" | Vida: "+this.getJogador().getVida());
+            System.out.println("Inimigo: "+this.getInimigo().getNome()+" | Vida: "+this.getInimigo().getVida()+"\n");
             System.out.println("--- SEU TURNO ---");
-            while(true){
-                System.out.println("Escolha qual opção deseja");
-                System.out.println("1. Atacar");
-                System.out.println("2. Abrir inventário");
-                int opcao = ler.nextInt();
-                if(opcao ==1){
-                    //fazer a parte de ataque
+            System.out.println("Escolha qual opção deseja");
+            System.out.println("1. Atacar");
+            System.out.println("2. Abrir inventário");
+            int opcao = ler.nextInt();
+            if(opcao ==1){
+                this.getJogador().ataque(this.getInimigo());
+                if(getInimigo().getVida()<=0){
+                    break;
                 }
-                if(opcao == 2){
-                    this.getJogador().listarItens();
+                System.out.println("--- TURNO DO INIMIGO: "+this.getInimigo().getNome()+" ---");
+                Thread.sleep(1900);
+                //verifica se o resto da divisão é igual a zero, se sim usa um superAtaque
+                if(contadorSuperAtaque%2==0){
+                    this.getInimigo().superAtaque(this.getJogador());
                 }
                 else{
-                    System.out.println("Opção inválida! Digite uma opção válida");
+                    this.getInimigo().ataque(this.getJogador());
                 }
-            }
 
+            }
+            else if(opcao == 2){
+                this.getJogador().listarItens();
+            }
+            else{
+                System.out.println("Opção inválida! Digite uma opção válida");
+            }
+            contadorSuperAtaque++;
         }
+
+        if(this.getJogador().getVida()>0){
+            proximaFase();
+        }
+        else{
+            System.out.println("--- Você Perdeu ---");
+            System.out.println("--- Game Over ---");
+        }
+    }
+
+    @Override
+    void proximaFase() throws InterruptedException {
+        FaseDengue faseDengue = new FaseDengue(getJogador());
+        faseDengue.iniciarFase();
     }
 }

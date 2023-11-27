@@ -1,4 +1,6 @@
 import Fase.FaseCoronaVirus;
+import ItemPackage.ItemAtaque;
+import ItemPackage.Mascara;
 import PersonagemPackage.Jogador;
 
 import java.util.Scanner;
@@ -8,7 +10,9 @@ public class Main {
         Scanner ler = new Scanner(System.in);
         System.out.println("Qual o seu primeiro nome?");
         String nome = ler.next();
-        Jogador jogador = new Jogador(nome, 100);
+        ItemAtaque tesoura = new ItemAtaque("Tesoura", "Item cortante",20);
+        Jogador jogador = new Jogador(nome, 100,tesoura) ;
+
         while(true){
            System.out.println("===> Seja bem vindo "+jogador.getNome() +" ao Health RPG!!! <===\n");
            System.out.println("1. Start");
@@ -24,7 +28,7 @@ public class Main {
                faseCoronaVirus.iniciarFase();
            }
            else if(opcao == 2){
-               System.out.println("Esse game foi desenvolvido pelos seguinte desenvolvedores: ");
+               System.out.println("\nEsse game foi desenvolvido pelos seguinte desenvolvedores: ");
                System.out.println("Kayque Ferreira dos Santos - RM: 552605");
                System.out.println("Marco Aurélio Morais Ennes - RM: 553201");
                System.out.println("André Alves da Silva - RM: 552639");

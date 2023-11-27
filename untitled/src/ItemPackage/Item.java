@@ -2,7 +2,8 @@ package ItemPackage;
 
 import PersonagemPackage.Jogador;
 
-public abstract class Item {
+public abstract class Item{
+
 
     private String nome;
 

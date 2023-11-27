@@ -1,43 +1,65 @@
 package PersonagemPackage;
 
+import ItemPackage.ItemConsumivel;
+import ItemPackage.Usavel;
 import ItemPackage.Item;
 import ItemPackage.ItemAtaque;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Jogador extends Personagem{
 
-    private List<Item> itens;
+    private List<ItemConsumivel> itens;
 
-    private ItemAtaque itemAtaque;
+    private ItemAtaque ataque;
 
     public Jogador(String nome, int vida, ItemAtaque itemAtaque) {
         super(nome, vida, itemAtaque.getDano(),0);
-        itens = new ArrayList<>();
+        this.itens = new ArrayList<>();
     }
 
     @Override
-    public void ataque(Personagem personagem){
+    public void ataque(Personagem personagem) throws InterruptedException{
+        System.out.println("Você atacou "+personagem.getNome());
+        Thread.sleep(1900);
         int vidaAposDano = personagem.getVida() - this.getAtaque();
         personagem.setVida(vidaAposDano);
-        System.out.println(personagem.getNome() + "sofreu "+this.getAtaque() +" de dano");
+        System.out.println(personagem.getNome() + " sofreu "+this.getAtaque() +" de dano\n");
+        Thread.sleep(1900);
+    }
+
+    public void usarItem(ItemConsumivel item){
+        item.usarItem(this);
     }
 
     public void listarItens(){
+        Scanner ler = new Scanner(System.in);
         System.out.println("----- Lista Itens ----");
         for(int i =0; i<itens.size(); i++){
             System.out.println("-- -- --");
-            System.out.println("Item "+itens.get(i));
+            System.out.println("Item nº: "+i);
             System.out.println("Nome: "+itens.get(i).getNome()+ "Descrição: "+itens.get(i).getDescricao());
         }
+        while(true){
+            System.out.println("Qual item deseja usar?");
+            int nItemUsuario = ler.nextInt();
+            if(nItemUsuario+1 <itens.size() || nItemUsuario+1>itens.size()){
+                System.out.println("Valor digitado inválido!!");
+            }
+            else{
+                itens.get(nItemUsuario).usarItem(this);
+            }
+        }
+
     }
 
-    public List<Item> getItens() {
+    public List<ItemConsumivel> getItens() {
         return itens;
     }
 
-    public void addItem(Item item) {
+    public void addItem(ItemConsumivel item) {
         this.itens.add(item);
     }
 

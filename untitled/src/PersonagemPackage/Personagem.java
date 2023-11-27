@@ -1,5 +1,7 @@
 package PersonagemPackage;
 
+import ItemPackage.ItemAtaque;
+
 public abstract class Personagem {
 
     private String nome;
@@ -21,7 +23,7 @@ public abstract class Personagem {
         this.defesa = defesa;
     }
 
-    public abstract void ataque(Personagem personagem);
+    public abstract void ataque(Personagem personagem) throws InterruptedException;
 
     public String getNome() {
         return nome;
@@ -43,8 +45,9 @@ public abstract class Personagem {
         return ataque;
     }
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
+
+    public void setAtaque(ItemAtaque itemAtaque) {
+        this.ataque = itemAtaque.getDano();
     }
 
     public int getDefesa() {

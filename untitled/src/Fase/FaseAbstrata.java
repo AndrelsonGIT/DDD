@@ -21,11 +21,11 @@ public abstract class FaseAbstrata {
 
     abstract void iniciarFase() throws InterruptedException;
 
-    protected void batalha(){
+    protected abstract void batalha() throws InterruptedException;
 
-    }
+    abstract void proximaFase() throws InterruptedException;
 
-    public Jogador   getJogador() {
+    public Jogador getJogador() {
         return jogador;
     }
 
