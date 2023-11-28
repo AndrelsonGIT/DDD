@@ -1,8 +1,6 @@
 package PersonagemPackage;
 
 import ItemPackage.ItemConsumivel;
-import ItemPackage.Usavel;
-import ItemPackage.Item;
 import ItemPackage.ItemAtaque;
 
 import java.util.ArrayList;
