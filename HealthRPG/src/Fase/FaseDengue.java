@@ -12,7 +12,7 @@ public class FaseDengue extends FaseAbstrata {
 
     @Override
     void iniciarFase() throws InterruptedException {
-        System.out.println("Fase iniciada");
+        System.out.println("");
     }
 
     @Override

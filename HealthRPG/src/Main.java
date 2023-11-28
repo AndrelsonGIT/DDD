@@ -24,7 +24,7 @@ public class Main {
            if(opcao == 1){
                FaseCoronaVirus faseCoronaVirus = new FaseCoronaVirus(jogador);
                System.out.println("Iniciando o jogo...");
-               Thread.sleep(1500);
+//               Thread.sleep(1500);
                faseCoronaVirus.iniciarFase();
            }
            else if(opcao == 2){
@@ -36,7 +36,7 @@ public class Main {
            }
            else{
                System.out.println("Saindo do jogo...");
-               Thread.sleep(2000);
+//               Thread.sleep(2000);
                break;
            }
        }
