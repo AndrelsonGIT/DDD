@@ -21,12 +21,13 @@ public class Jogador extends Personagem{
     }
 
     @Override
-    public void ataque(Personagem personagem) throws InterruptedException{
-        System.out.println("Você atacou "+personagem.getNome());
+    public void ataque(Personagem inimigo) throws InterruptedException{
+        System.out.println("Você atacou "+inimigo.getNome());
         Thread.sleep(1900);
-        int vidaAposDano = personagem.getVida() - this.getAtaque();
-        personagem.setVida(vidaAposDano);
-        System.out.println(personagem.getNome() + " sofreu "+this.getAtaque() +" de dano\n");
+        int calculoDano = (this.getAtaque()-inimigo.getDefesa());
+        int vidaAposDano = inimigo.getVida() - calculoDano;
+        inimigo.setVida(vidaAposDano);
+        System.out.println(inimigo.getNome() + " sofreu "+ calculoDano+" de dano\n");
         Thread.sleep(1900);
     }
 
@@ -40,7 +41,7 @@ public class Jogador extends Personagem{
         for(int i =0; i<itens.size(); i++){
             System.out.println("-- -- --");
             System.out.println("Item nº: "+i);
-            System.out.println("Nome: "+itens.get(i).getNome()+ "Descrição: "+itens.get(i).getDescricao());
+            System.out.println("Nome: "+itens.get(i).getNome()+ " | Descrição: "+itens.get(i).getDescricao());
         }
         while(true){
             System.out.println("Qual item deseja usar?");
@@ -50,6 +51,7 @@ public class Jogador extends Personagem{
             }
             else{
                 itens.get(nItemUsuario).usarItem(this);
+                itens.remove(nItemUsuario);
                 break;
             }
         }

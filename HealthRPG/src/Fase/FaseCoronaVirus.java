@@ -5,6 +5,7 @@ import ItemPackage.Mascara;
 import ItemPackage.Medicamento;
 import PersonagemPackage.Jogador;
 import PersonagemPackage.Patologias.CoronaVirus;
+import PersonagemPackage.Personagem;
 
 import java.util.Scanner;
 
@@ -12,9 +13,17 @@ public class FaseCoronaVirus extends FaseAbstrata{
 
     public FaseCoronaVirus(Jogador usuario){
         super(usuario, new CoronaVirus());
-
     }
+    /*
+    potato
+    qwe
+    rqw
+    r
+    q
+    rqr
+    q
 
+    */
     @Override
     public void iniciarFase() throws InterruptedException {
         System.out.println("==> FASE 1: Epidemia Covid <==\n");
@@ -26,62 +35,31 @@ public class FaseCoronaVirus extends FaseAbstrata{
         System.out.println("Sintomas comuns incluem febre, tosse, dificuldade respiratória, fadiga e perda de olfato e paladar. A transmissão ocorre principalmente por gotículas respiratórias durante a fala, tosse ou espirro de uma pessoa infectada, além do contato próximo.\n");
         System.out.println("Sua missão é utilizar os itens corretos para combater e se proteger dessa ameaça invisível. O destino da cidade está em suas mãos! Boa sorte!\n");
         System.out.println("Começando a batalha!!!\n");
-        batalha();
-    }
-
-    @Override
-    protected void batalha() throws InterruptedException {
-
-        Scanner ler = new Scanner(System.in);
         Mascara mascara = new Mascara();
         Medicamento medicamento = new Medicamento();
         this.getJogador().addItem(mascara);
         this.getJogador().addItem(medicamento);
-        ItemAtaque itemAtaque = new ItemAtaque("Tesoura", "Item mto louco", 30);
-        this.getJogador().setAtaque(itemAtaque);
+        ItemAtaque tesoura = new ItemAtaque("Tesoura", "Item mto louco", 30);
+        this.getJogador().setAtaque(tesoura);
         System.out.println("--- Inimigo: Corona Virus ---\n");
-        int contadorSuperAtaque = 1;
-        while(this.getJogador().getVida()>0){
-            System.out.println("Informações Game: ");
-            System.out.println("Jogador: " +this.getJogador().getNome()+" | Vida: "+this.getJogador().getVida());
-            System.out.println("Inimigo: "+this.getInimigo().getNome()+" | Vida: "+this.getInimigo().getVida()+"\n");
-            System.out.println("--- SEU TURNO ---");
-            System.out.println("Escolha qual opção deseja");
-            System.out.println("1. Atacar");
-            System.out.println("2. Abrir inventário");
-            int opcao = ler.nextInt();
-            if(opcao ==1){
-                this.getJogador().ataque(this.getInimigo());
-                if(getInimigo().getVida()<=0){
-                    break;
-                }
-                System.out.println("--- TURNO DO INIMIGO: "+this.getInimigo().getNome()+" ---");
-                Thread.sleep(1900);
-                //verifica se o resto da divisão é igual a zero, se sim usa um superAtaque
-                if(contadorSuperAtaque%2==0){
-                    this.getInimigo().superAtaque(this.getJogador());
-                }
-                else{
-                    this.getInimigo().ataque(this.getJogador());
-                }
+        Personagem vencedor = batalha();
 
-            }
-            else if(opcao == 2){
-                this.getJogador().listarItens();
-            }
-            else{
-                System.out.println("Opção inválida! Digite uma opção válida");
-            }
-            contadorSuperAtaque++;
-        }
-
-        if(this.getJogador().getVida()>0){
+        if(vencedor instanceof Jogador){
+            System.out.println("O temível inimigo " + this.getInimigo().getNome() + " foi implacavelmente derrotado, sucumbindo diante da sua habilidade avassaladora!\n");
+            ItemAtaque bisturi = new ItemAtaque("Bisturi", "Item mto louco", 60);
+            this.getJogador().setAtaque(bisturi);
+            System.out.println("Sua arma evoluiu por derrotar o "+this.getInimigo().getNome());
+            System.out.println("O item "+bisturi.getNome()+"agora é a sua arma principal e possui "+bisturi.getDano()+" de valor de ataque");
+            System.out.println("Iniciando próxima fase...");
+            Thread.sleep(1300);
             proximaFase();
         }
         else{
-            System.out.println("--- Você Perdeu ---");
-            System.out.println("--- Game Over ---");
+            System.out.println("Você perdeu a batalha");
+            Thread.sleep(1500);
+            System.out.println("--- Game Over ---\n\n");
         }
+
     }
 
     @Override

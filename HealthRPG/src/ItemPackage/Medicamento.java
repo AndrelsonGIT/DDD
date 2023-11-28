@@ -13,7 +13,7 @@ public class Medicamento extends ItemConsumivel {
 
     @Override
     public void usarItem(Jogador jogador) {
-        System.out.println(jogador.getNome()+" usou o item "+this.getNome()+ " e ganhou "+this.getVidaRecuperacao());
+        System.out.println(jogador.getNome()+" usou o item "+this.getNome()+ " e ganhou "+this.getVidaRecuperacao()+" ponto de vida");
         int aumentoVida = jogador.getVida()+this.vidaRecuperacao;
         jogador.setVida(aumentoVida);
     }
