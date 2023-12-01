@@ -5,7 +5,7 @@ import PersonagemPackage.Jogador;
 public abstract class Item{
 
     private String nome;
-    
+
     protected Item(String nome){
         this.nome = nome;
     }

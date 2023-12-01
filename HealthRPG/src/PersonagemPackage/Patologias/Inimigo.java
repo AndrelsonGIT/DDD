@@ -13,5 +13,6 @@ public abstract class Inimigo extends Personagem {
         super(nome, vida, ataque,defesa);
     }
 
+    //Metodo na qual o inimigo usa um Super Ataque, que seria um ataque mas que causa um maior dano no Jogador
     public abstract void superAtaque(Jogador personagem) throws InterruptedException;
 }

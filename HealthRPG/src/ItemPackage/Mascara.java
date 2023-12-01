@@ -10,6 +10,7 @@ public class Mascara extends ItemConsumivel {
         super("Mascara");
         this.defesa = 10;
     }
+    //Esse metodo aumenta a defesa do jogador
     @Override
     public void usarItem(Jogador jogador){
         jogador.setDefesa(this.defesa);

@@ -9,6 +9,8 @@ public class CoronaVirus extends Inimigo{
         super("Corona Virus", 60, 15, 10);
     }
 
+
+    //Método do inimigo para atacar o jogador
     @Override
     public void ataque(Personagem personagem) throws InterruptedException  {
         System.out.println("Corona Virus usou o seu Virus Ataque no "+personagem.getNome()+"\n");
@@ -19,7 +21,7 @@ public class CoronaVirus extends Inimigo{
         System.out.println(personagem.getNome() + " sofreu "+ calculoDano+" de dano, sua vida atual é "+personagem.getVida()+"\n");
         Thread.sleep(1900);
     }
-
+    //Método do inimigo para dar um super ataque no jogador, na qual causa um dano extra em relação ao ataque normal
     @Override
     public void superAtaque(Jogador personagem) throws InterruptedException {
         System.out.println("Corona Virus usou o seu Super Virus Ataque no "+personagem.getNome());

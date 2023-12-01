@@ -9,7 +9,7 @@ public class Dengue extends Inimigo{
         super("Mosquito Dengue", 100, 25, 20);
     }
 
-
+    //Método do inimigo para atacar o jogador
     @Override
     public void ataque(Personagem jogador) throws InterruptedException {
         System.out.println(this.getNome()+" usou o a sua picada no "+jogador.getNome());
@@ -19,7 +19,7 @@ public class Dengue extends Inimigo{
         System.out.println(jogador.getNome() + " sofreu "+this.getAtaque() +" de dano, sua vida atual é "+jogador.getVida()+"\n");
         Thread.sleep(1900);
     }
-
+    //Método do inimigo para dar um super ataque no jogador, na qual causa um dano extra em relação ao ataque normal
     @Override
     public void superAtaque(Jogador jogador) throws InterruptedException {
         System.out.println(this.getNome()+" usou a sua picada no "+jogador.getNome());

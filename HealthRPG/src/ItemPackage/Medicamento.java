@@ -11,6 +11,7 @@ public class Medicamento extends ItemConsumivel {
         this.vidaRecuperacao = 50;
     }
 
+    //método responsável por aumentar a quantidade de vida do jogador
     @Override
     public void usarItem(Jogador jogador) {
         System.out.println(jogador.getNome()+" usou o item "+this.getNome()+ " e ganhou "+this.getVidaRecuperacao()+" ponto de vida");
