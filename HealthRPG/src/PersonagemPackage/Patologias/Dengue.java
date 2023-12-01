@@ -6,7 +6,7 @@ import PersonagemPackage.Personagem;
 public class Dengue extends Inimigo{
 
     public Dengue() {
-        super("Mosquito Dengue", 125, 25, 20);
+        super("Mosquito Dengue", 100, 25, 20);
     }
 
 

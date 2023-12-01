@@ -9,11 +9,12 @@ import PersonagemPackage.Personagem;
 
 import java.util.Scanner;
 
-public class FaseCoronaVirus extends FaseAbstrata{
+public class FaseCoronaVirus extends FaseAbstrata {
 
-    public FaseCoronaVirus(Jogador usuario){
+    public FaseCoronaVirus(Jogador usuario) {
         super(usuario, new CoronaVirus());
     }
+
     /*
     potato
     qwe
@@ -44,26 +45,24 @@ public class FaseCoronaVirus extends FaseAbstrata{
         System.out.println("--- Inimigo: Corona Virus ---\n");
         Personagem vencedor = batalha();
 
-        if(vencedor instanceof Jogador){
+        if (vencedor instanceof Jogador) {
             System.out.println("O temível inimigo " + this.getInimigo().getNome() + " foi implacavelmente derrotado, sucumbindo diante da sua habilidade avassaladora!\n");
             ItemAtaque bisturi = new ItemAtaque("Bisturi", "Item mto louco", 60);
             this.getJogador().setAtaque(bisturi);
-            System.out.println("Sua arma evoluiu por derrotar o "+this.getInimigo().getNome());
-            System.out.println("O item "+bisturi.getNome()+"agora é a sua arma principal e possui "+bisturi.getDano()+" de valor de ataque");
+            System.out.println("Sua arma evoluiu por derrotar o " + this.getInimigo().getNome());
+            System.out.println("O item " + bisturi.getNome() + "agora é a sua arma principal e possui " + bisturi.getDano() + " de valor de ataque");
             System.out.println("Iniciando próxima fase...");
             Thread.sleep(1300);
             proximaFase();
-        }
-        else{
+        } else {
             System.out.println("Você perdeu a batalha");
             Thread.sleep(1500);
             System.out.println("--- Game Over ---\n\n");
         }
-
     }
 
     @Override
-    void proximaFase() throws InterruptedException {
+    public void proximaFase() throws InterruptedException {
         FaseDengue faseDengue = new FaseDengue(getJogador());
         faseDengue.iniciarFase();
     }

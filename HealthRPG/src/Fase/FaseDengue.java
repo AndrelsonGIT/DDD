@@ -14,7 +14,7 @@ public class FaseDengue extends FaseAbstrata {
     }
 
     @Override
-    void iniciarFase() throws InterruptedException {
+    public void iniciarFase() throws InterruptedException {
         System.out.println("==> FASE 2: Epidemia de Dengue <==\n");
         System.out.println("Uma atmosfera tensa envolve a cidade, trazendo consigo a temida Dengue. O mosquito Aedes aegypti está causando estragos, e as pessoas estão apreensivas.\n");
         Thread.sleep(4000);
@@ -45,7 +45,16 @@ public class FaseDengue extends FaseAbstrata {
     }
 
     @Override
-    void proximaFase() throws InterruptedException {
-
+    public void proximaFase() throws InterruptedException {
+        System.out.println("==> VITÓRIA TOTAL! <==\n");
+        System.out.println("Parabéns, "+this.getJogador().getNome() +"! Com sua coragem e sabedoria, você enfrentou todas as epidemias, protegendo a cidade do caos e devolvendo a paz aos seus habitantes.\n");
+        Thread.sleep(2000);
+        System.out.println("Seu compromisso incansável em combater as doenças, do Coronavírus à Dengue e à Malária, salvou vidas e inspirou esperança em todos os cantos da cidade.\n");
+        Thread.sleep(2000);
+        System.out.println("Graças a você, a população pode agora se recuperar e reconstruir. Sua jornada foi árdua, mas sua determinação triunfou sobre as adversidades.\n");
+        Thread.sleep(2000);
+        System.out.println("A cidade está em débito com você, herói, e seu nome será lembrado nas páginas da história como aquele que trouxe cura e paz em tempos difíceis.\n");
+        System.out.println("Obrigado por sua bravura e dedicação. Você é verdadeiramente um guardião da saúde e um exemplo de coragem para todos!\n");
+        System.out.println("FIM DO JOGO. Esperamos que tenha se divertido e, mais importante, que tenha aprendido um pouco mais sobre a importância da saúde pública!\n");
     }
 }

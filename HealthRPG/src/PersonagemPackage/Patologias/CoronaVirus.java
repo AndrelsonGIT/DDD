@@ -6,7 +6,7 @@ import PersonagemPackage.Personagem;
 public class CoronaVirus extends Inimigo{
 
     public CoronaVirus() {
-        super("Corona Virus", 100, 15, 10);
+        super("Corona Virus", 60, 15, 10);
     }
 
     @Override

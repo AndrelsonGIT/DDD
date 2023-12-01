@@ -22,7 +22,7 @@ public abstract class FaseAbstrata {
         this.inimigo = inimigo;
     }
 
-    abstract void iniciarFase() throws InterruptedException;
+    public abstract void iniciarFase() throws InterruptedException;
 
     //retorna o vencedor da batalha
     protected Personagem batalha() throws InterruptedException {
@@ -39,19 +39,6 @@ public abstract class FaseAbstrata {
             int opcao = ler.nextInt();
             if(opcao ==1){
                 this.getJogador().ataque(this.getInimigo());
-                if(getInimigo().getVida()<=0){
-                    break;
-                }
-                System.out.println("--- TURNO DO INIMIGO: "+this.getInimigo().getNome()+" ---");
-                Thread.sleep(1900);
-                //verifica se o resto da divisão é igual a zero, se sim usa um superAtaque
-                if(contadorSuperAtaque%2==0){
-                    this.getInimigo().superAtaque(this.getJogador());
-                }
-                else{
-                    this.getInimigo().ataque(this.getJogador());
-                }
-
             }
             else if(opcao == 2){
                 this.getJogador().listarItens();
@@ -61,6 +48,22 @@ public abstract class FaseAbstrata {
                 System.out.println("Opção inválida! Digite uma opção válida");
             }
             contadorSuperAtaque++;
+            if(getInimigo().getVida()<=0){
+                break;
+            }
+            System.out.println("--- TURNO DO INIMIGO: "+this.getInimigo().getNome()+" ---");
+            Thread.sleep(1900);
+            //verifica se o resto da divisão é igual a zero, se sim usa um superAtaque
+            if(contadorSuperAtaque%2==0){
+                this.getInimigo().superAtaque(this.getJogador());
+            }
+            else{
+                this.getInimigo().ataque(this.getJogador());
+            }
+            if(this.getJogador().getVida()<=0){
+                break;
+            }
+
         }
 
         if(this.getJogador().getVida()>0){
@@ -71,7 +74,7 @@ public abstract class FaseAbstrata {
         }
     }
 
-    abstract void proximaFase() throws InterruptedException;
+    public abstract void proximaFase() throws InterruptedException;
 
     public Jogador getJogador() {
         return jogador;
