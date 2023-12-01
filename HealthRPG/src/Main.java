@@ -10,7 +10,7 @@ public class Main {
         Scanner ler = new Scanner(System.in);
         System.out.println("Qual o seu primeiro nome?");
         String nome = ler.next();
-        ItemAtaque tesoura = new ItemAtaque("Tesoura", "Item cortante",20);
+        ItemAtaque tesoura = new ItemAtaque("Tesoura", 20);
         Jogador jogador = new Jogador(nome, 100,tesoura) ;
         System.out.println(" _     _                _        _        ______   ______    ______");
         Thread.sleep(1000);

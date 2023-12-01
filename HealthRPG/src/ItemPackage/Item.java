@@ -4,14 +4,10 @@ import PersonagemPackage.Jogador;
 
 public abstract class Item{
 
-
     private String nome;
-
-    private String descricao;
-
-    protected Item(String nome, String descricao){
+    
+    protected Item(String nome){
         this.nome = nome;
-        this.descricao = descricao;
     }
 
     public String getNome() {
@@ -22,11 +18,5 @@ public abstract class Item{
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 }

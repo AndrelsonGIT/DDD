@@ -7,12 +7,12 @@ import PersonagemPackage.Personagem;
 
 import java.util.Scanner;
 
-public class FaseDengue extends FaseAbstrata {
+public class    FaseDengue extends FaseAbstrata {
 
     public FaseDengue(Jogador usuario) {
         super(usuario, new Dengue());
     }
-
+    //Metodo para inciar a fase do mosquito da Dengue
     @Override
     public void iniciarFase() throws InterruptedException {
         System.out.println("==> FASE 2: Epidemia de Dengue <==\n");
@@ -29,7 +29,7 @@ public class FaseDengue extends FaseAbstrata {
 
         if(vencedor instanceof Jogador){
             System.out.println("Num épico combate, a Dengue, personificada como " + this.getInimigo().getNome() + ", foi derrotada, caindo perante sua incrível destreza e imunidade elevada!\n");
-            ItemAtaque laminaSerra = new ItemAtaque("Lamina de Serra", "Item mto louco", 90);
+            ItemAtaque laminaSerra = new ItemAtaque("Lamina de Serra",  90);
             this.getJogador().setAtaque(laminaSerra);
             System.out.println("Sua arma evoluiu por derrotar o "+this.getInimigo().getNome());
             System.out.println("O item "+laminaSerra.getNome()+"agora é a sua arma principal e possui "+laminaSerra.getDano()+" de valor de ataque");

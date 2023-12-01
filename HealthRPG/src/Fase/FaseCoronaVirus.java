@@ -15,16 +15,7 @@ public class FaseCoronaVirus extends FaseAbstrata {
         super(usuario, new CoronaVirus());
     }
 
-    /*
-    potato
-    qwe
-    rqw
-    r
-    q
-    rqr
-    q
-
-    */
+    //Metodo para inciar a fase do Corona Virus
     @Override
     public void iniciarFase() throws InterruptedException {
         System.out.println("==> FASE 1: Epidemia Covid <==\n");
@@ -40,14 +31,14 @@ public class FaseCoronaVirus extends FaseAbstrata {
         Medicamento medicamento = new Medicamento();
         this.getJogador().addItem(mascara);
         this.getJogador().addItem(medicamento);
-        ItemAtaque tesoura = new ItemAtaque("Tesoura", "Item mto louco", 30);
+        ItemAtaque tesoura = new ItemAtaque("Tesoura", 30);
         this.getJogador().setAtaque(tesoura);
         System.out.println("--- Inimigo: Corona Virus ---\n");
         Personagem vencedor = batalha();
 
         if (vencedor instanceof Jogador) {
             System.out.println("O temível inimigo " + this.getInimigo().getNome() + " foi implacavelmente derrotado, sucumbindo diante da sua habilidade avassaladora!\n");
-            ItemAtaque bisturi = new ItemAtaque("Bisturi", "Item mto louco", 60);
+            ItemAtaque bisturi = new ItemAtaque("Bisturi",  60);
             this.getJogador().setAtaque(bisturi);
             System.out.println("Sua arma evoluiu por derrotar o " + this.getInimigo().getNome());
             System.out.println("O item " + bisturi.getNome() + "agora é a sua arma principal e possui " + bisturi.getDano() + " de valor de ataque");
@@ -61,6 +52,7 @@ public class FaseCoronaVirus extends FaseAbstrata {
         }
     }
 
+    //Metodo para quando o jogador terminar essa fase, ele avança para a próxima
     @Override
     public void proximaFase() throws InterruptedException {
         FaseDengue faseDengue = new FaseDengue(getJogador());

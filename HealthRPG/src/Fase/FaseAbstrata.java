@@ -22,6 +22,8 @@ public abstract class FaseAbstrata {
         this.inimigo = inimigo;
     }
 
+
+    // metodo para iniciar a fase do jogo
     public abstract void iniciarFase() throws InterruptedException;
 
     //retorna o vencedor da batalha

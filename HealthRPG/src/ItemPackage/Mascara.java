@@ -7,7 +7,7 @@ public class Mascara extends ItemConsumivel {
     private final int defesa;
 
     public Mascara() {
-        super("Mascara", "");
+        super("Mascara");
         this.defesa = 10;
     }
     @Override

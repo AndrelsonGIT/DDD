@@ -4,8 +4,8 @@ public class ItemAtaque extends Item{
 
     private int dano;
 
-    public ItemAtaque(String nome, String descricao, int dano) {
-        super(nome, descricao);
+    public ItemAtaque(String nome, int dano) {
+        super(nome);
         this.dano = dano;
     }
 

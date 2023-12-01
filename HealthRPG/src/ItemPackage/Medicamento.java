@@ -7,7 +7,7 @@ public class Medicamento extends ItemConsumivel {
     private final int vidaRecuperacao;
 
     public Medicamento(){
-        super("Medicamento", "Descrição");
+        super("Medicamento");
         this.vidaRecuperacao = 50;
     }
 
