@@ -94,4 +94,17 @@ public class User {
     public void setComplement(String complement) {
         this.complement = complement;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", streetAddress='" + streetAddress + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", complement='" + complement + '\'' +
+                '}';
+    }
 }

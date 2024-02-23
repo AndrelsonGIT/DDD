@@ -7,6 +7,8 @@
     <modules>
         <module>atividade-api-github</module>
         <module>conversorMoeda</module>
+        <module>DominioWeb</module>
+        <module>atividade-criar-usuario-github</module>
     </modules>
     <dependencies>
         <dependency>
@@ -18,6 +20,12 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220320</version>
         </dependency>
     </dependencies>
     <groupId>org.example</groupId>
