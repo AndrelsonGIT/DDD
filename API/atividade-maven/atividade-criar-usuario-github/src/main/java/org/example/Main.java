@@ -28,8 +28,8 @@ public class Main {
         if(userOption == 1){
             System.out.println("Qual o nome do github do usuário?");
 
-            gitService.findGitHubUser()
-
+            gitService.findGitHubUser();
+            
         }
         else if(userOption == 2){
             System.out.println("Digite o nome do usuario ");
