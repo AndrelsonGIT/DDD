@@ -86,13 +86,14 @@ public class Main {
                             contaParaSerAtualizada.depositar(ler.nextDouble());
 
                             cliente = new Cliente(nomeAtualizado, idadeAtualizada, contaParaSerAtualizada);
-                            clienteService.editarCliente(idClienteParaSerAtualizado, cliente);
+                            clienteService.editarCliente(idClienteParaSerAtualizado, contaParaSerAtualizada);
                         }
+                        clienteService.editarCliente(idClienteParaSerAtualizado, cliente);
                     }
                 case 4:
                     System.out.println("Digite o id do cliente");
                     int idClienteParaSerRemovido = ler.nextInt();
-                    clienteService.removerProduto(idClienteParaSerRemovido);
+                    clienteService.remvoverCliente(idClienteParaSerRemovido);
             }
 
         }

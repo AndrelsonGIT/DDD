@@ -27,8 +27,6 @@ public class ClienteService {
             System.out.println("Cliente numero conta: "+value.getConta().getNumero());
             System.out.println("Cliente ");
             System.out.println("-------");
-            );
-            System.out.println("------");
         });
     }
 
@@ -51,18 +49,18 @@ public class ClienteService {
         if (clienteProduto == null){
             System.out.println("Produto não encontrado na lista");
         }
-        if(conta.getNumero().equalsIgnoreCase("") && conta.getNumero() != null)){
+        if(conta.getNumero().equalsIgnoreCase("") && conta.getNumero() != null){
             clienteProduto.getConta().setNumero(conta.getNumero());
         }
-        if(conta.getAgencia().equalsIgnoreCase("") && conta.getAgencia() != null)){
+        if(conta.getAgencia().equalsIgnoreCase("") && conta.getAgencia() != null){
             clienteProduto.getConta().setAgencia(conta.getAgencia());
         }
-        if(conta.getNome().equalsIgnoreCase("") && conta.getNome() != null)){
+        if(conta.getNome().equalsIgnoreCase("") && conta.getNome() != null){
             clienteProduto.getConta().setNome(conta.getNome());
         }
     }
 
-    public void removerProduto(int id){
+    public void remvoverCliente(int id){
         if(listaProdutos.containsKey(id)){
             System.out.println("Produto não existe na lista");
         }else{
