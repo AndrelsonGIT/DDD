@@ -16,7 +16,7 @@ public class ClienteService {
         qtdProdutos++;
     }
 
-    public void exibirProdutos(){
+    public void exibirClientes(){
         listaProdutos.forEach((key, value)->{
             System.out.println("------");
             System.out.println("Cliente id: " + qtdProdutos);
