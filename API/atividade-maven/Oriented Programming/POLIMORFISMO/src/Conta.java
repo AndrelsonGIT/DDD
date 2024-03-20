@@ -43,6 +43,4 @@ public abstract class Conta {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
 }
