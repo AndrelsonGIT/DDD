@@ -80,9 +80,11 @@ public class Main {
 
             System.out.println("Deseja continuar? (s/n)");
             String respostaUsuario = ler.next();
+
             if(respostaUsuario.equalsIgnoreCase("n")){
                 break;
             }
+
         }
 
         produtoService.exibirProdutos();
