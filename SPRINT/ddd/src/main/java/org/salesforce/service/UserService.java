@@ -44,12 +44,14 @@ public class UserService {
        try {
            Statement statement =  connection.createStatement();
 
-           String query = String.format("insert into tb_usuario(nome, sobrenome, email, senha) values (%s, %s, %s,%s) ",usuario.getNome(),
+           String query = String.format("update tb_usuario set values email ",usuario.getNome(),
                    usuario.getSobrenome(),
                    usuario.getEmail(),
                    usuario.getSenha()) ;
 
-           ResultSet resultSet =  statement.executeQuery(query);
+           ResultSet resultSet = statement.executeQuery(query);
+           statement.executeUpdate();
+
            resultSet.next();
        } catch (SQLException e) {
            System.out.println("Falha ao cadastrar o usuario");
@@ -62,5 +64,16 @@ public class UserService {
                System.out.println("Falha ao fechar conexão com o banco de dados");
            }
        }
+   }
+   
+   public void acharUsuario(int usuarioId){
+        Connection connection = oracleConnection.getConnection();
+        try{
+           Statement statement = connection.createStatement();
+           String query = "";
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
    }
 }
