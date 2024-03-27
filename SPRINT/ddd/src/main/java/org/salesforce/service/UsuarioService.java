@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
 
-public class UserService {
+public class UsuarioService {
 
-    public UserService() {
+    public UsuarioService() {
     }
 
     public void inserirUsuario(Usuario usuario){

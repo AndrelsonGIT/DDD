@@ -1,9 +1,12 @@
 package org.salesforce.model.pedido;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 public class Pedido {
-    private int idPedido;
+    private int id;
 
     private int idUsuario;
 
@@ -14,19 +17,19 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(int idPedido, int idUsuario, LocalDateTime dataPedido, StatusPedido statusPedido) {
-        this.idPedido = idPedido;
+    public Pedido(int id, int idUsuario, LocalDateTime dataPedido, StatusPedido statusPedido) {
+        this.id = id;
         this.idUsuario = idUsuario;
         this.dataPedido = dataPedido;
         this.statusPedido = statusPedido;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdUsuario() {
@@ -42,7 +45,9 @@ public class Pedido {
     }
 
     public void setDataPedido(LocalDateTime dataPedido) {
-        this.dataPedido = dataPedido;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        this.dataPedido =  LocalDateTime.parse(formatter.format(dataPedido));
     }
 
     public StatusPedido getStatusPedido() {
