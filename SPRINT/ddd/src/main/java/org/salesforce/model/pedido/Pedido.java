@@ -45,9 +45,7 @@ public class Pedido {
     }
 
     public void setDataPedido(LocalDateTime dataPedido) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
-        this.dataPedido =  LocalDateTime.parse(formatter.format(dataPedido));
+        this.dataPedido = dataPedido;
     }
 
     public StatusPedido getStatusPedido() {

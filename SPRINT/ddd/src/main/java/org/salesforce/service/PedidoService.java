@@ -12,35 +12,40 @@ import java.sql.Statement;
 import java.util.Optional;
 
 public class PedidoService {
-    public PedidoService() {
+
+    private DataRegional dataRegional;
+
+    public PedidoService(DataRegional dataRegional) {
+        this.dataRegional = dataRegional;
     }
 
-//    public void inserirPedido(Pedido pedido){
-//        Connection connection = OracleDBConnection.getConnection();
-//        try {
-//            Statement statement =  connection.createStatement();
-//
-//            String query = String.format(
-//                    "insert into tb_pedido(id_pedido, id_usuario, data_pedido, status) " +
-//                            "values (%s, %s, to_date(%s),%s) ",pedido.getId(),
-//                    pedido.,
-//                    pedido.getEmail(),
-//                    pedido.getSenha()) ;
-//
-//            ResultSet resultSet =  statement.executeQuery(query);
-//            resultSet.next();
-//        } catch (SQLException e) {
-//            System.out.println("Falha ao cadastrar o usuario");
-//            System.out.println(e);
-//        }
-//        finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                System.out.println("Falha ao fechar conexão com o banco de dados");
-//            }
-//        }
-//    }
+    public void inserirPedido(Pedido pedido){
+        Connection connection = OracleDBConnection.getConnection();
+        try {
+            Statement statement =  connection.createStatement();
+
+
+            String query = String.format(
+                    "insert into tb_pedido(id_pedido, id_usuario, data_pedido, status) " +
+                            "values (%s, %s, to_date(%s, 'DD/MM/YYYY HH24:MI:SS'),%s) ",pedido.getId(),
+                    pedido.getIdUsuario(),
+                    dataRegional.converterParaFormatoBrasileiro(pedido.getDataPedido()),
+                    pedido.getStatusPedido()) ;
+
+            ResultSet resultSet =  statement.executeQuery(query);
+            resultSet.next();
+        } catch (SQLException e) {
+            System.out.println("Falha ao cadastrar o usuario");
+            System.out.println(e);
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Falha ao fechar conexão com o banco de dados");
+            }
+        }
+    }
 
     public void atualizarUsuario(Usuario usuario){
         Connection connection = OracleDBConnection.getConnection();

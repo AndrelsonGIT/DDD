@@ -1,6 +1,7 @@
 package org.salesforce;
 
 import org.salesforce.model.pedido.Pedido;
+import org.salesforce.service.DataRegional;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +10,9 @@ public class Main {
         System.out.println("Hello world!");
         Pedido pedido = new Pedido();
         LocalDateTime dataAtual =  LocalDateTime.now();
-        pedido.setDataPedido(dataAtual);
-        System.out.println(pedido.getDataPedido());
+        DataRegional dataRegional = new DataRegional();
+
+
+        System.out.println(dataRegional.converterParaFormatoBrasileiro(dataAtual));
     }
 }
