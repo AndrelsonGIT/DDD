@@ -22,16 +22,14 @@ public class PedidoService {
     public void inserirPedido(Pedido pedido){
         Connection connection = OracleDBConnection.getConnection();
         try {
-            Statement statement =  connection.createStatement();
+            String query  = "INSERT INTO tb_pedido(id_pedido, id_usuario, data_pedido, status) VALUES (?, ?, TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS'), ?)";
+            Statement statement =  connection.prepareStatement(query);
 
-
-            String query = String.format(
-                    "insert into tb_pedido(id_pedido, id_usuario, data_pedido, status) " +
-                            "values (%s, %s, to_date(%s, 'DD/MM/YYYY HH24:MI:SS'),%s) ",pedido.getId(),
+            //TODO: USAR OS SET STATEMENTS AQUI
                     pedido.getIdUsuario(),
                     dataRegional.converterParaFormatoBrasileiro(pedido.getDataPedido()),
                     pedido.getStatusPedido()) ;
-
+            System.out.println(query);
             ResultSet resultSet =  statement.executeQuery(query);
             resultSet.next();
         } catch (SQLException e) {
