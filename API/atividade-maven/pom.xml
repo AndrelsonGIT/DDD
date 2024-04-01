@@ -9,6 +9,7 @@
         <module>conversorMoeda</module>
         <module>DominioWeb</module>
         <module>atividade-criar-usuario-github</module>
+        <module>DataBase</module>
     </modules>
     <dependencies>
         <dependency>

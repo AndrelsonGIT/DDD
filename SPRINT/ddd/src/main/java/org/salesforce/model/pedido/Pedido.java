@@ -24,6 +24,12 @@ public class Pedido {
         this.statusPedido = statusPedido;
     }
 
+    public Pedido(int idUsuario, LocalDateTime dataPedido, StatusPedido statusPedido) {
+        this.idUsuario = idUsuario;
+        this.dataPedido = dataPedido;
+        this.statusPedido = statusPedido;
+    }
+
     public int getId() {
         return id;
     }

@@ -18,7 +18,8 @@ public class Dao {
             statement.executeUpdate(query);
             result = true;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Falha ao executar comando no banco");
+            System.out.println(e);
         }
         finally {
             try {

@@ -2,7 +2,7 @@ package org.salesforce.model;
 
 public class UsuarioAtualizacao {
 
-    private String id;
+    private int id;
 
     private String email;
 
@@ -11,17 +11,17 @@ public class UsuarioAtualizacao {
     public UsuarioAtualizacao() {
     }
 
-    public UsuarioAtualizacao(String id, String email, String password) {
+    public UsuarioAtualizacao(int id, String email, String password) {
         this.id = id;
         this.email = email;
         this.password = password;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

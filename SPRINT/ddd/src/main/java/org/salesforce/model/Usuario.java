@@ -11,6 +11,15 @@ public class Usuario {
 
     private String senha;
 
+
+
+    public Usuario(String nome, String sobrenome, String email, String senha) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.email = email;
+        this.senha = senha;
+    }
+
     public Usuario(int id, String nome, String sobrenome, String email, String senha) {
         this.id = id;
         this.nome = nome;
@@ -18,6 +27,7 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
     }
+
 
     public int getId() {
         return id;
