@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DDD.iml" filepath="$PROJECT_DIR$/.idea/DDD.iml" />
       <module fileurl="file://$PROJECT_DIR$/HealthRPG/HealthRPG.iml" filepath="$PROJECT_DIR$/HealthRPG/HealthRPG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MetodosString/MetodosString.iml" filepath="$PROJECT_DIR$/MetodosString/MetodosString.iml" />
     </modules>
   </component>
 </project>
